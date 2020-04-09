@@ -7,7 +7,7 @@ const {
 const {
     getRelatedPagesWithImages,
 } = require('./src/utils/setup/get-related-pages-with-images');
-const { saveAssetFile } = require('./src/utils/setup/save-asset-file');
+const { saveAssetFiles } = require('./src/utils/setup/save-asset-files');
 const {
     validateEnvVariables,
 } = require('./src/utils/setup/validate-env-variables');
@@ -33,6 +33,7 @@ const PAGE_ID_PREFIX = `${metadata.project}/${metadata.user}/${metadata.parserBr
 
 // different types of references
 const PAGES = [];
+const ASSETS = [];
 
 // in-memory object with key/value = filename/document
 const slugContentMapping = {};
@@ -72,11 +73,12 @@ exports.sourceNodes = async ({
 
 exports.onCreateNode = async ({ node }) => {
     if (node.internal.type === 'Asset') {
-        await saveAssetFile(node.id, stitchClient);
+        ASSETS.push(node.id);
     }
 };
 
 exports.createPages = async ({ actions }) => {
+    await saveAssetFiles(ASSETS, stitchClient);
     const { createPage } = actions;
     const metadata = await stitchClient.callFunction('fetchDocument', [
         DB,
