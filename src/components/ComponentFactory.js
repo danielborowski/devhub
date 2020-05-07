@@ -4,7 +4,7 @@ import { ADMONITIONS } from '../constants';
 import Admonition from './Admonition';
 import BlockQuote from './dev-hub/blockquote';
 import CardGroup from './CardGroup';
-import CodeBlock from './dev-hub/codeblock';
+import CodeBlock from './dev-hub/codeblock'; 
 import Chart from './dev-hub/chart';
 import Cond from './Cond';
 import Contents from './Contents';
