@@ -12,7 +12,7 @@ const metadata = getMetadata();
 module.exports = {
     pathPrefix: generatePathPrefix(metadata),
     plugins: [
-        'gatsby-plugin-react-helmet',
+        'gatsby-plugin-react-helmet', 
         'gatsby-plugin-emotion',
         {
             resolve: 'gatsby-plugin-sitemap',
