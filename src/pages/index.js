@@ -179,7 +179,7 @@ export default ({ pageContext: { featuredArticles } }) => {
                         <br />
                         {`["fast", "innovative", "original"]})`}
                     </Heading>
-                    <Sub>What will you create toaaaadsakdasnfaajsd22nfsdfay?</Sub>
+                    <Sub>What will you create toaaaaaadsakdasnfaajsd22nfsdfay?</Sub>
                     <CardGallery>
                         {featuredArticles.map(article => {
                             const {
